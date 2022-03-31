@@ -1,6 +1,6 @@
 from crypt import methods
 from tabnanny import check
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import subprocess
 import argparse
 
@@ -24,7 +24,6 @@ def getUptime():
         return "Permission denied.\n"
 
 
-
 @app.route('/hostname', methods=['POST', 'GET'])
 def getHostname():
     hostnameRequest = request.args.get('hostname')
@@ -34,6 +33,28 @@ def getHostname():
         return str(userHost)[2:-3] + "@" + str(hostname)[2:-3]
     else:
         return "Permission denied.\n"
+
+
+@app.route('/df', methods=['POST', 'GET'])
+def getDF():
+    dfRequest = request.args.get('df')
+    if dfRequest == 'secret':
+        dfHost = subprocess.check_output("df -h", shell=True)
+        return dfHost
+    else:
+        return "Permission denied.\n"
+
+
+@app.route('/ping', methods=['POST', 'GET'])
+def getPing():
+    pingRequest = request.args.get('ping')
+    remoteIP = request.remote_addr
+    if pingRequest == "secret":
+        pingHost = subprocess.check_output("ping -c 3 "+ remoteIP, shell=True)
+        return pingHost
+    else:
+        return "Permission denied.\n"
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=args.port_number)

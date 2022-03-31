@@ -8,6 +8,20 @@ import sys
 
 optionsList = ["Uptime", "Disk Space", "Ping", "Exit"]
 
+def monitorOptions(selectedOption):
+    if selectedOption == "Uptime":
+        getUptime = requests.get("http://"+selectedSystem+"/uptime?uptime=secret")
+        print(str(getUptime.text))
+    if selectedOption == "Disk Space":
+        getDF = requests.get("http://"+selectedSystem+"/df?df=secret")
+        print(getDF.text)
+    if selectedOption == "Ping":
+        getPing = requests.get("http://"+selectedSystem+"/ping?ping=secret")
+        print(getPing.text)
+    if selectedOption == "Exit":
+        return "Exit"
+
+
 def selectSystem(systemList):
     while True:
         iteration = 0
@@ -63,28 +77,21 @@ if optionalAdd.upper() == "Y" or optionalAdd.upper == "YES":
         else:
             systemFile.write(newSystem+'\n')
 
-
-with open("systems.txt") as file:
-    systemList = file.read().splitlines()
-
-#print(systemList[1])
-
-selectedSystem = selectSystem(systemList)
-
-getHostname = requests.get("http://"+selectedSystem+"/hostname?hostname=secret")
-
-if str(getHostname.status_code) != "200" or getHostname.raise_for_status():
-    print("Error: Couldn't establish hostname.")
-    print("You selected: " + selectedSystem)
-else:
-    print(str(getHostname.text))
-    print("You selected: " + str(getHostname.text) + "[" + selectedSystem + "]")
-
-
-
-selectedOption = optionSelect(optionsList)
-
-print("You selected: " + selectedOption)
-
-if selectedOption == "Exit":
+while True:
+    with open("systems.txt") as file:
+        systemList = file.read().splitlines()
     selectedSystem = selectSystem(systemList)
+    getHostname = requests.get("http://"+selectedSystem+"/hostname?hostname=secret")
+    if str(getHostname.status_code) != "200" or getHostname.raise_for_status():
+        print("Error: Couldn't establish hostname.")
+        print("You selected: " + selectedSystem)
+    else:
+        print("You selected: " + str(getHostname.text) + "[" + selectedSystem + "]")
+    while True:
+        selectedOption = optionSelect(optionsList)
+        print("You selected: " + selectedOption)
+        outOption = monitorOptions(selectedOption)
+        if outOption == "Exit":
+            break
+
+
