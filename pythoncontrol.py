@@ -8,22 +8,22 @@ import sys
 
 optionsList = ["Uptime", "Disk Space", "Ping", "DNS Lookup", "Current Usage", "Enable Logging (to do)", "Enable Twilio Logging (to do)", "Exit"]
 
-def monitorOptions(selectedOption):
+def monitorOptions(selectedOption, systemLockPass):
     if selectedOption == "Uptime":
-        getUptime = requests.get("http://"+selectedSystem+"/uptime?uptime=secret")
+        getUptime = requests.get("http://"+selectedSystem+"/uptime?uptime="+systemLockPass)
         print(str(getUptime.text))
     if selectedOption == "Disk Space":
-        getDF = requests.get("http://"+selectedSystem+"/df?df=secret")
+        getDF = requests.get("http://"+selectedSystem+"/df?df="+systemLockPass)
         print(getDF.text)
     if selectedOption == "Ping":
-        getPing = requests.get("http://"+selectedSystem+"/ping?ping=secret")
+        getPing = requests.get("http://"+selectedSystem+"/ping?ping="+systemLockPass)
         print(getPing.text)
     if selectedOption == "DNS Lookup":
         dnsSite = input("Enter domain you want to test against (ex: google.com): ")
         getDNSLookup = requests.get("http://"+selectedSystem+"/dnsLookup?dnsLookup=" + dnsSite)
         print(getDNSLookup.text)
     if selectedOption == "Current Usage":
-        getUsage = requests.get("http://"+selectedSystem+"/usage?usage=secret")
+        getUsage = requests.get("http://"+selectedSystem+"/usage?usage="+systemLockPass)
         print(getUsage.text)
     if selectedOption == "Exit":
         return "Exit"
@@ -88,7 +88,14 @@ while True:
     with open("systems.txt") as file:
         systemList = file.read().splitlines()
     selectedSystem = selectSystem(systemList)
-    getHostname = requests.get("http://"+selectedSystem+"/hostname?hostname=secret")
+    isSystemSecure = input("Does this system have a lockpass? (y/n): ")
+    if isSystemSecure.upper() == "Y":
+        systemLockPass = input("Enter System lockpass (Leave blank for default): ")
+        if systemLockPass == "":
+            systemLockPass = "secret"
+    else:
+        systemLockPass = "secret"
+    getHostname = requests.get("http://"+selectedSystem+"/hostname?hostname=" + systemLockPass)
     if str(getHostname.status_code) != "200" or getHostname.raise_for_status():
         print("Error: Couldn't establish hostname.")
         print("You selected: " + selectedSystem)
@@ -97,7 +104,7 @@ while True:
     while True:
         selectedOption = optionSelect(optionsList)
         print("You selected: " + selectedOption)
-        outOption = monitorOptions(selectedOption)
+        outOption = monitorOptions(selectedOption, systemLockPass)
         if outOption == "Exit":
             break
 

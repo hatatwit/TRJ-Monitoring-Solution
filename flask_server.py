@@ -7,14 +7,16 @@ import argparse
 # Allows you to define a different port number using -p <port>
 parser = argparse.ArgumentParser()
 parser.add_argument('-p', '--port-number', default=5000)
+parser.add_argument('-l', '--lock-pass', default="secret")
 args = parser.parse_args()
+
 
 app = Flask(__name__)
 
 @app.route('/uptime', methods=['POST', 'GET'])
 def getUptime():
     uptimeRequest = request.args.get('uptime')
-    if uptimeRequest == "secret":
+    if uptimeRequest == str(args.lock_pass):
         userHost = subprocess.check_output("whoami", shell=True)
         hostname = subprocess.check_output("hostname", shell=True)
         uptimeOut = subprocess.check_output("uptime -p", shell=True)
@@ -27,7 +29,7 @@ def getUptime():
 @app.route('/hostname', methods=['POST', 'GET'])
 def getHostname():
     hostnameRequest = request.args.get('hostname')
-    if hostnameRequest == "secret":
+    if hostnameRequest == str(args.lock_pass):
         userHost = subprocess.check_output("whoami", shell=True)
         hostname = subprocess.check_output("hostname", shell=True)
         return str(userHost)[2:-3] + "@" + str(hostname)[2:-3]
@@ -38,7 +40,7 @@ def getHostname():
 @app.route('/df', methods=['POST', 'GET'])
 def getDF():
     dfRequest = request.args.get('df')
-    if dfRequest == 'secret':
+    if dfRequest == str(args.lock_pass):
         dfHost = subprocess.check_output("df -h", shell=True)
         return dfHost
     else:
@@ -49,7 +51,7 @@ def getDF():
 def getPing():
     pingRequest = request.args.get('ping')
     remoteIP = request.remote_addr
-    if pingRequest == "secret":
+    if pingRequest == str(args.lock_pass):
         pingHost = subprocess.check_output("ping -c 3 "+ remoteIP, shell=True)
         return pingHost
     else:
@@ -66,7 +68,7 @@ def getDNSLookup():
 @app.route('/usage', methods=['POST', 'GET'])
 def getUsage():
     usageRequest = request.args.get('usage')
-    if usageRequest == "secret":
+    if usageRequest == str(args.lock_pass):
         usageHost = subprocess.check_output("top -b -n 1 | head -n 20  | tail -n 19", shell=True)
         return usageHost
     else:
