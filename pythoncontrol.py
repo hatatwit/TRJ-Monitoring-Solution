@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 import sys
 
-optionsList = ["Uptime", "Disk Space", "Ping", "Exit"]
+optionsList = ["Uptime", "Disk Space", "Ping", "DNS Lookup", "Current Usage", "Exit"]
 
 def monitorOptions(selectedOption):
     if selectedOption == "Uptime":
@@ -18,6 +18,13 @@ def monitorOptions(selectedOption):
     if selectedOption == "Ping":
         getPing = requests.get("http://"+selectedSystem+"/ping?ping=secret")
         print(getPing.text)
+    if selectedOption == "DNS Lookup":
+        dnsSite = input("Enter domain you want to test against (ex: google.com): ")
+        getDNSLookup = requests.get("http://"+selectedSystem+"/dnsLookup?dnsLookup=" + dnsSite)
+        print(getDNSLookup.text)
+    if selectedOption == "Current Usage":
+        getUsage = requests.get("http://"+selectedSystem+"/usage?usage=secret")
+        print(getUsage.text)
     if selectedOption == "Exit":
         return "Exit"
 

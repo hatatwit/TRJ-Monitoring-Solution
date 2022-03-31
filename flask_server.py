@@ -56,6 +56,22 @@ def getPing():
         return "Permission denied.\n"
 
 
+@app.route('/dnsLookup', methods=['POST', 'GET'])
+def getDNSLookup():
+    dnsLookupRequest = request.args.get('dnsLookup')
+    dnsLookupHost = subprocess.check_output("nslookup " + dnsLookupRequest, shell=True)
+    return dnsLookupHost
+
+
+@app.route('/usage', methods=['POST', 'GET'])
+def getUsage():
+    usageRequest = request.args.get('usage')
+    if usageRequest == "secret":
+        usageHost = subprocess.check_output("top -b -n 1 | head -n 20  | tail -n 19", shell=True)
+        return usageHost
+    else:
+        return "Permission denied.\n"
+
 if __name__ == '__main__':
     app.run(debug=True, port=args.port_number)
 
