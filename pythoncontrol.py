@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 import sys
 
-optionsList = ["Uptime", "Disk Space", "Ping", "DNS Lookup", "Current Usage", "Exit"]
+optionsList = ["Uptime", "Disk Space", "Ping", "DNS Lookup", "Current Usage", "Enable Logging (to do)", "Enable Twilio Logging (to do)", "Exit"]
 
 def monitorOptions(selectedOption):
     if selectedOption == "Uptime":

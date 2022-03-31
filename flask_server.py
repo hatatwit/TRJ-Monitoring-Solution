@@ -73,5 +73,5 @@ def getUsage():
         return "Permission denied.\n"
 
 if __name__ == '__main__':
-    app.run(debug=True, port=args.port_number)
+    app.run(debug=True, host='0.0.0.0', port=args.port_number)
 
