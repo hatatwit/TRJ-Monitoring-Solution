@@ -1,0 +1,140 @@
+body {
+    background: linear-gradient(-55deg, #8400ff, #e4e73c, #2394d5, #232fd5);
+	background-size: 250% 200%;
+    /* Call animation: "gradientbackground" | Anim runs for 30 seconds | Ease interpolation | Infinite loop */
+	animation: gradientbackground 30s ease infinite;
+}
+
+/* Key frames are kinda cool - They act just like any animation software... 
+Set animation parameters above (ex: 30s == full animation interpolation time) and gradients.
+As animation plays, it eases into the next background position. - Robert */ 
+@keyframes gradientbackground {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.mainTitle {
+    text-align: center;
+    font-weight: 600;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 1);
+    text-transform: uppercase;
+    color: black;
+    letter-spacing: 6px;
+    text-shadow: 1px 1px 1px rgb(140, 0, 255),
+               2px 2px 1px rgb(255, 251, 0);
+    /*           
+    text-shadow: 1px 1px 1px rgb(30, 255, 0),
+               2px 2px 1px rgb(140, 0, 255);
+               */
+}
+
+/* Styling of the submit button itself */
+.choice1 {
+    height: 35px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: none;
+    background-size: 300% 100%;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    animation: gradientbackground 30s ease infinite;
+    border-style: groove;
+    border-color: black;
+} 
+
+.choice2 {
+    height: 35px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: none;
+    background-size: 300% 100%;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    animation: gradientbackground 30s ease infinite;
+    border-style: groove;
+    border-color: black;
+} 
+
+.choice3 {
+    height: 35px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: none;
+    background-size: 300% 100%;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    animation: gradientbackground 30s ease infinite;
+    border-style: groove;
+    border-color: black;
+} 
+
+.choice4 {
+    height: 35px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: none;
+    background-size: 300% 100%;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    animation: gradientbackground 30s ease infinite;
+    border-style: groove;
+    border-color: black;
+} 
+
+.choice5 {
+    height: 35px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: none;
+    background-size: 300% 100%;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    animation: gradientbackground 30s ease infinite;
+    border-style: groove;
+    border-color: black;
+} 
+
+#selections {
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
