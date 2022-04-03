@@ -1,24 +1,4 @@
-body {
-    background: linear-gradient(-55deg, #8400ff, #e4e73c, #2394d5, #232fd5);
-	background-size: 250% 200%;
-    /* Call animation: "gradientbackground" | Anim runs for 30 seconds | Ease interpolation | Infinite loop */
-	animation: gradientbackground 30s ease infinite;
-}
 
-/* Key frames are kinda cool - They act just like any animation software... 
-Set animation parameters above (ex: 30s == full animation interpolation time) and gradients.
-As animation plays, it eases into the next background position. - Robert */ 
-@keyframes gradientbackground {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
 
 .mainTitle {
     text-align: center;
