@@ -1,3 +1,12 @@
+function getLockpass(){
+    let lockpassText = document.getElementById("lockpassText").value;
+    if (lockpassText == "") {
+        lockpassText = "secret";
+    }
+    return lockpassText;
+}
+
+
 function loadFileAsText(){
     var fileToLoad = document.getElementById("fileToLoad").files[0];
   
@@ -39,9 +48,11 @@ function makeList(serverStringParam){
 
 function uptimeCheck() {
 
+    let lockpassText = getLockpass();
+
     outputUptime.innerText = "";
 
-    let url = "http://"+document.getElementById("selectServer").value+"/uptime?uptime=secret";
+    let url = "http://"+document.getElementById("selectServer").value+"/uptime?uptime="+lockpassText;
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -59,9 +70,11 @@ function uptimeCheck() {
 
 function dfCheck() {
 
+    let lockpassText = getLockpass();
+
     outputDF.innerText = "";
     
-    let url = "http://"+document.getElementById("selectServer").value+"/df?df=secret";
+    let url = "http://"+document.getElementById("selectServer").value+"/df?df="+lockpassText;
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -79,9 +92,11 @@ function dfCheck() {
 
 function pingCheck() {
 
+    let lockpassText = getLockpass();
+
     outputPing.innerText = "";
 
-    let url = "http://"+document.getElementById("selectServer").value+"/ping?ping=secret";
+    let url = "http://"+document.getElementById("selectServer").value+"/ping?ping="+lockpassText;
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -98,6 +113,8 @@ function pingCheck() {
 }
 
 function dnsCheck() {
+
+    let lockpassText = getLockpass();
 
     outputDNS.innerText = "";
             
@@ -119,9 +136,11 @@ function dnsCheck() {
 
 function currentUsageCheck() {
 
+    let lockpassText = getLockpass();
+
     outputCurrentUsage.innerText = "";
             
-    let url = "http://"+document.getElementById("selectServer").value+"/usage?usage=secret";
+    let url = "http://"+document.getElementById("selectServer").value+"/usage?usage="+lockpassText;
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
