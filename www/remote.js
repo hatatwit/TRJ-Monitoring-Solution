@@ -19,6 +19,10 @@ function loadFileAsText(){
         makeList(serverString);
         document.getElementById("selections").style.visibility="visible";
         document.getElementById("selections").style.display="block";
+        document.getElementById("lockpassTitle").style.visibility="visible";
+        document.getElementById("lockpassTitle").style.display="block";
+        document.getElementById("lockpassText").style.visibility="visible";
+        document.getElementById("lockpassText").style.display="block";
     };
   
     fileReader.readAsText(fileToLoad, "UTF-8");
@@ -159,6 +163,10 @@ function currentUsageCheck() {
 window.onload = function() {
     document.getElementById("selections").style.visibility="hidden";
     document.getElementById("selections").style.display="none";
+    document.getElementById("lockpassTitle").style.visibility="hidden";
+    document.getElementById("lockpassTitle").style.display="none";
+    document.getElementById("lockpassText").style.visibility="hidden";
+    document.getElementById("lockpassText").style.display="none";
 
     var outputUptime = document.createElement('outputUptime');
     document.getElementById("selectionChoice1").appendChild(outputUptime);
