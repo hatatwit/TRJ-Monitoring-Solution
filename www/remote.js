@@ -1,8 +1,47 @@
+function loadFileAsText(){
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+  
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent){
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        //console.log(textFromFileLoaded);
+        let serverString = textFromFileLoaded.split("\n");
+        console.log(serverString);
+        makeList(serverString);
+        document.getElementById("selections").style.visibility="visible";
+        document.getElementById("selections").style.display="block";
+    };
+  
+    fileReader.readAsText(fileToLoad, "UTF-8");
+  }
+
+
+function makeList(serverStringParam){
+
+    if (document.body.contains(document.getElementById("selectServer"))) {
+        console.log("selectList exists");
+        document.getElementById("selectServer").remove();
+    }
+
+    var selectList = document.createElement("select");
+    selectList.id = "selectServer";
+    document.body.appendChild(selectList);
+
+    //Create and append the options
+    for (var i = 0; i < serverStringParam.length; i++) {
+        var option = document.createElement("option");
+        option.value = serverStringParam[i];
+        option.text = serverStringParam[i];
+        selectList.appendChild(option);
+    }
+
+}
+
 function uptimeCheck() {
 
     outputUptime.innerText = "";
 
-    let url = "http://127.0.0.1:5000/uptime?uptime=secret";
+    let url = "http://"+document.getElementById("selectServer").value+"/uptime?uptime=secret";
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -22,7 +61,7 @@ function dfCheck() {
 
     outputDF.innerText = "";
     
-    let url = "http://127.0.0.1:5000/df?df=secret";
+    let url = "http://"+document.getElementById("selectServer").value+"/df?df=secret";
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -42,7 +81,7 @@ function pingCheck() {
 
     outputPing.innerText = "";
 
-    let url = "http://127.0.0.1:5000/ping?ping=secret";
+    let url = "http://"+document.getElementById("selectServer").value+"/ping?ping=secret";
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -62,7 +101,7 @@ function dnsCheck() {
 
     outputDNS.innerText = "";
             
-    let url = "http://127.0.0.1:5000/dnsLookup?dnsLookup=google.com";
+    let url = "http://"+document.getElementById("selectServer").value+"/dnsLookup?dnsLookup=google.com";
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -82,7 +121,7 @@ function currentUsageCheck() {
 
     outputCurrentUsage.innerText = "";
             
-    let url = "http://127.0.0.1:5000/usage?usage=secret";
+    let url = "http://"+document.getElementById("selectServer").value+"/usage?usage=secret";
 
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -99,6 +138,9 @@ function currentUsageCheck() {
 }
 
 window.onload = function() {
+    document.getElementById("selections").style.visibility="hidden";
+    document.getElementById("selections").style.display="none";
+
     var outputUptime = document.createElement('outputUptime');
     document.getElementById("selectionChoice1").appendChild(outputUptime);
     outputUptime.type = "text"; 
@@ -123,4 +165,5 @@ window.onload = function() {
     document.getElementById("selectionChoice5").appendChild(outputCurrentUsage);
     outputCurrentUsage.type = "text"; 
     outputCurrentUsage.id = "outputCurrentUsage";
+
 }

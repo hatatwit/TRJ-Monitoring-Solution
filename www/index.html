@@ -6,6 +6,11 @@
         <title class="mainTitle">Pycontrol Web</title>
     </head>
     <h2 id="mainTitle" class="mainTitle">Pycontrol Web</h2>
+    <tr>
+        <td id="serverFileSelectTitle">Select server file:</td><br/>
+        <td><input onchange="loadFileAsText()" type="file" id="fileToLoad"></td><br/><br/>
+    </tr><pre id="output"></pre>
+      </select>
     <ul id="selections" class="selections">
         <ul id="selectionChoice1" class="selectionChoices"><button class="btn choice1" onclick="uptimeCheck()">Uptime check</button></ul><br/>
         <ul id="selectionChoice2" class="selectionChoices"><button class="btn choice2" onclick="dfCheck()">Disk space</button></ul><br/>
