@@ -1,6 +1,7 @@
 from crypt import methods
 from tabnanny import check
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
+import pyrebase
 import subprocess
 import argparse
 
@@ -12,6 +13,35 @@ args = parser.parse_args()
 
 
 app = Flask(__name__)
+
+# Configure Firebase
+config = {
+    "apiKey": "AIzaSyDGMDGyOroE6UlVz33VbXRXc2A1VuRWWfA",
+    "authDomain": "trj-monitoring-solution.firebaseapp.com",
+    "databaseURL": "https://trj-monitoring-solution-default-rtdb.firebaseio.com",
+    "projectId": "trj-monitoring-solution",
+    "storageBucket": "trj-monitoring-solution.appspot.com",
+    "messagingSenderId": "1082345966429",
+    "appId": "1:1082345966429:web:b21c8bb1c5e122181676b4",
+    "measurementId": "G-8W1JG3PFXY"
+}
+
+firebase = pyrebase.initialize_app(config)
+database = firebase.database()
+storage = firebase.storage()
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/features")
+def features():
+    return render_template("features.html")
+
+@app.route("/logfile")
+def logfile():
+    logURL = storage.child("logfile.txt").get_url(None)
+    return render_template("logfile.html", logURL=logURL)
 
 @app.route('/uptime', methods=['POST', 'GET'])
 def getUptime():
