@@ -4,6 +4,7 @@ from flask import Flask, request, jsonify, render_template
 import pyrebase
 import subprocess
 import argparse
+from flask_cors import CORS
 
 # Allows you to define a different port number using -p <port>
 parser = argparse.ArgumentParser()
@@ -13,6 +14,7 @@ args = parser.parse_args()
 
 
 app = Flask(__name__)
+CORS(app)
 
 # Configure Firebase
 config = {
@@ -33,6 +35,14 @@ storage = firebase.storage()
 @app.route("/")
 def index():
     return render_template("index.html")
+
+@app.route("/remote.js")
+def remoteJS():
+    return render_template("remote.js")
+
+@app.route("/remote.css")
+def remoteCSS():
+    return render_template("remote.css")
 
 @app.route("/features")
 def features():
