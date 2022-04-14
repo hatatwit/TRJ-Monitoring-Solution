@@ -8,8 +8,19 @@ import logging
 import os
 from pathlib import Path
 import sys
+from twilio.rest import Client
+import re
 
-optionsList = ["Uptime", "Disk Space", "Ping", "DNS Lookup", "Current Usage", "Enable Logging", "Enable Twilio Logging (to do)", "Exit"]
+# TWILIO CREDS
+account_sid = 'AC7eb2c71840d90d1d2531a6d14dc5c61e'
+auth_token = 'e6632c0b4940a9c99e31d144ba271c36'
+
+sysadmins = ['+15089017299', '+19789609162']
+
+client = Client(account_sid, auth_token)
+#########################################
+
+optionsList = ["Uptime", "Disk Space", "Ping", "DNS Lookup", "Current Usage", "Enable Logging", "Exit"]
 logFile = os.path.join(os.getcwd(), "networkInfo.log")
 
 # Configure Firebase
@@ -43,11 +54,37 @@ def monitorOptions(selectedOption, systemLockPass):
     if selectedOption == "Disk Space":
         getDF = requests.get("http://"+selectedSystem+"/df?df="+systemLockPass)
         print(getDF.text)
+        res = re.findall(r'\d\d%', getDF.text)
+        print(res)
+        res = [s.replace("%", "") for s in res]
+        print(res)
+        if any(int(x) > 75 for x in res):
+            print("Disk space is above 75%")
+            for x in sysadmins:
+                message = client.messages.create(
+                    from_='+19402837299',
+                    body ='Host: ' + str(selectedSystem) + '\nHas reached disk space threshold of 75%',
+                    to = x
+                    )
+            print(message.sid)
+            sys.exit()
+
         writeLog(getDF.text, selectedOption.upper())
     if selectedOption == "Ping":
         getPing = requests.get("http://"+selectedSystem+"/ping?ping="+systemLockPass)
         print(getPing.text)
-        writeLog(getPing.text, selectedOption.upper())
+        if getPing.text.find("100% packet loss") != -1 or getPing.text.find("Internet ping (google.com) failed.") != -1:
+            for x in sysadmins:
+                message = client.messages.create(
+                    from_='+19402837299',
+                    body ='Host: ' + str(selectedSystem) + '\nUnable to ping google.com',
+                    to = x
+                    )
+            print(message.sid)
+            print("Ping FAILURE")
+            sys.exit()
+        else:
+            writeLog(getPing.text, selectedOption.upper())
     if selectedOption == "DNS Lookup":
         dnsSite = input("Enter domain you want to test against (ex: google.com): ")
         getDNSLookup = requests.get("http://"+selectedSystem+"/dnsLookup?dnsLookup=" + dnsSite)
@@ -137,7 +174,20 @@ while True:
             systemLockPass = "secret"
     else:
         systemLockPass = "secret"
-    getHostname = requests.get("http://"+selectedSystem+"/hostname?hostname=" + systemLockPass)
+    
+    try:
+        getHostname = requests.get("http://"+selectedSystem+"/hostname?hostname=" + systemLockPass)
+    except requests.exceptions.ConnectionError:
+        print("Connection error, please check your connection and try again.")
+
+        for x in sysadmins:
+            message = client.messages.create(
+                from_='+19402837299',
+                body ='Unable to resolve host on ' + str(selectedSystem),
+                to = x
+                )
+        print(message.sid)
+        sys.exit()
     if str(getHostname.status_code) != "200" or getHostname.raise_for_status():
         print("Error: Couldn't establish hostname.")
         print("You selected: " + selectedSystem)

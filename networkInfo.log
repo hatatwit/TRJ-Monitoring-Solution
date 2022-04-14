@@ -1,0 +1,298 @@
+2022-04-13 19:06:32
+----------
+UPTIME
+ ----------
+Host: bob@fedora
+Has been up for: 2 hours, 41 minutes
+
+2022-04-13 19:12:44
+----------
+CURRENT USAGE
+ ----------
+Tasks: 497 total,   3 running, 494 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.6 us,  1.9 sy,  0.0 ni, 92.7 id,  0.0 wa,  0.4 hi,  0.4 si,  0.0 st
+MiB Mem :  47956.6 total,  26910.8 free,   7160.5 used,  13885.4 buff/cache
+MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  39154.7 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   4534 bob       20   0   40.9g 436796 159748 S  33.3   0.9  23:32.55 Discord
+   2474 bob       20   0   24.2g 104592  66408 R  26.7   0.2  12:33.17 Xorg
+   4032 bob       20   0   36.5g 161612 112276 R  20.0   0.3   1:58.68 Discord
+   2913 bob        9 -11  264140  34820   7176 S   6.7   0.1   1:46.06 pipewir+
+  22424 bob       20   0  225968   4340   3476 R   6.7   0.0   0:00.01 top
+      1 root      20   0  172340  17828  11308 S   0.0   0.0   0:01.83 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.01 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+      9 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_perc+
+     10 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tas+
+     11 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tas+
+
+2022-04-13 19:13:10
+----------
+UPTIME
+ ----------
+Host: bob@fedora
+Has been up for: 2 hours, 48 minutes
+
+2022-04-13 19:14:00
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G  969M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   40M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 19:36:55
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G  989M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   40M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 19:37:40
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G  985M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   40M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 19:38:21
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G  981M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   40M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 19:38:23
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G  981M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   40M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 19:39:14
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G  981M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   40M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 19:43:56
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G 1003M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   42M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 19:52:46
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G 1015M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   44M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 19:53:03
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G 1012M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   44M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 20:01:39
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G 1003M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   43M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 20:18:54
+----------
+UPTIME
+ ----------
+Host: bob@fedora
+Has been up for: 3 hours, 54 minutes
+
+2022-04-13 20:20:21
+----------
+UPTIME
+ ----------
+Host: bob@fedora
+Has been up for: 3 hours, 55 minutes
+
+2022-04-13 20:20:30
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G 1001M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   43M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 20:20:33
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G 1004M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   43M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 20:22:44
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G 1001M   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  607G  323G  66% /
+tmpfs            24G   43M   24G   1% /tmp
+/dev/sdc3       930G  607G  323G  66% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  308K  4.7G   1% /run/user/1000
+
+2022-04-13 20:24:03
+----------
+UPTIME
+ ----------
+Host: bob@fedora
+Has been up for: 3 hours, 59 minutes
+
+2022-04-13 20:42:34
+----------
+PING
+ ----------
+PING google.com(lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e)) 56 data bytes
+64 bytes from lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=1 ttl=57 time=20.2 ms
+64 bytes from lga25s72-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=2 ttl=57 time=18.6 ms
+64 bytes from lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=3 ttl=57 time=18.7 ms
+
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 18.577/19.164/20.175/0.717 ms
+
+2022-04-13 20:43:15
+----------
+PING
+ ----------
+Internet ping (google.com) failed.
+
+2022-04-13 20:44:46
+----------
+PING
+ ----------
+Internet ping (google.com) failed.
+
+2022-04-13 20:45:20
+----------
+PING
+ ----------
+Internet ping (google.com) failed.
+
+2022-04-13 20:48:10
+----------
+PING
+ ----------
+PING google.com(lga25s72-in-x0e.1e100.net (2607:f8b0:4006:80f::200e)) 56 data bytes
+64 bytes from lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=1 ttl=57 time=22.1 ms
+64 bytes from lga25s72-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=2 ttl=57 time=19.6 ms
+64 bytes from lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=3 ttl=57 time=18.0 ms
+
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 18.012/19.899/22.093/1.680 ms
+
