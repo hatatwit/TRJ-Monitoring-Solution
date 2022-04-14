@@ -59,12 +59,14 @@ def getUptime():
     if uptimeRequest == str(args.lock_pass):
         userHost = subprocess.check_output("whoami", shell=True)
         hostname = subprocess.check_output("hostname", shell=True)
-        uptimeOut = subprocess.check_output("uptime -p", shell=True)
+        # linux
+        # uptimeOut = subprocess.check_output("uptime -p", shell=True)
+        # unix
+        uptimeOut = subprocess.check_output("uptime ", shell=True)
         #return "<h1>Host: " + str(userHost)[2:-3] + "@" + str(hostname)[2:-3] + "</h1> <h3>Has been up for: " + str(uptimeOut)[4:-3] + "</h3>"
-        return "Host: " + str(userHost)[2:-3] + "@" + str(hostname)[2:-3] + "\nHas been up for:" + str(uptimeOut)[4:-3] + "\n"
+        return "Host: " + str(userHost)[2:-3] + "@" + str(hostname)[2:-3] + "\nHas been up for:" + str(uptimeOut)[7:-3] + "\n"
     else:
         return "Permission denied.\n"
-
 
 @app.route('/hostname', methods=['POST', 'GET'])
 def getHostname():
@@ -76,7 +78,6 @@ def getHostname():
     else:
         return "Permission denied.\n"
 
-
 @app.route('/df', methods=['POST', 'GET'])
 def getDF():
     dfRequest = request.args.get('df')
@@ -85,7 +86,6 @@ def getDF():
         return dfHost
     else:
         return "Permission denied.\n"
-
 
 @app.route('/ping', methods=['POST', 'GET'])
 def getPing():
@@ -97,19 +97,21 @@ def getPing():
     else:
         return "Permission denied.\n"
 
-
 @app.route('/dnsLookup', methods=['POST', 'GET'])
 def getDNSLookup():
     dnsLookupRequest = request.args.get('dnsLookup')
     dnsLookupHost = subprocess.check_output("nslookup " + dnsLookupRequest, shell=True)
     return dnsLookupHost
 
-
 @app.route('/usage', methods=['POST', 'GET'])
 def getUsage():
     usageRequest = request.args.get('usage')
     if usageRequest == str(args.lock_pass):
-        usageHost = subprocess.check_output("top -b -n 1 | head -n 20  | tail -n 19", shell=True)
+        # linux
+        # usageHost = subprocess.check_output("top -b -n 1 | head -n 20  | tail -n 19", shell=True)
+        # unix
+        usageHost = subprocess.check_output("top -n 1 | head -n 20  | tail -n 19", shell=True)
+
         return usageHost
     else:
         return "Permission denied.\n"

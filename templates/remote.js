@@ -19,12 +19,12 @@ function loadFileAsText(){
         makeList(serverString);
         document.getElementById("selections").style.visibility="visible";
         document.getElementById("selections").style.display="block";
-        document.getElementById("lockpassTitle").style.visibility="visible";
-        document.getElementById("lockpassTitle").style.display="block";
-        document.getElementById("lockpassText").style.visibility="visible";
-        document.getElementById("lockpassText").style.display="block";
+        // document.getElementById("lockpassTitle").style.visibility="visible";
+        // document.getElementById("lockpassTitle").style.display="block";
+        // document.getElementById("lockpassText").style.visibility="visible";
+        // document.getElementById("lockpassText").style.display="block";
     };
-  
+
     fileReader.readAsText(fileToLoad, "UTF-8");
   }
 
@@ -77,7 +77,7 @@ function dfCheck() {
     let lockpassText = getLockpass();
 
     outputDF.innerText = "";
-    
+
     let url = "http://"+document.getElementById("selectServer").value+"/df?df="+lockpassText;
 
     let xhr = new XMLHttpRequest();
@@ -121,7 +121,7 @@ function dnsCheck() {
     let lockpassText = getLockpass();
 
     outputDNS.innerText = "";
-            
+
     let url = "http://"+document.getElementById("selectServer").value+"/dnsLookup?dnsLookup=google.com";
 
     let xhr = new XMLHttpRequest();
@@ -143,7 +143,7 @@ function currentUsageCheck() {
     let lockpassText = getLockpass();
 
     outputCurrentUsage.innerText = "";
-            
+
     let url = "http://"+document.getElementById("selectServer").value+"/usage?usage="+lockpassText;
 
     let xhr = new XMLHttpRequest();
@@ -163,10 +163,10 @@ function currentUsageCheck() {
 window.onload = function() {
     document.getElementById("selections").style.visibility="hidden";
     document.getElementById("selections").style.display="none";
-    document.getElementById("lockpassTitle").style.visibility="hidden";
-    document.getElementById("lockpassTitle").style.display="none";
-    document.getElementById("lockpassText").style.visibility="hidden";
-    document.getElementById("lockpassText").style.display="none";
+    // document.getElementById("lockpassTitle").style.visibility="hidden";
+    // document.getElementById("lockpassTitle").style.display="none";
+    // document.getElementById("lockpassText").style.visibility="hidden";
+    // document.getElementById("lockpassText").style.display="none";
 
     var outputUptime = document.createElement('outputUptime');
     document.getElementById("selectionChoice1").appendChild(outputUptime);

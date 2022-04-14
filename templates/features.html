@@ -2,19 +2,29 @@
 {% block title %}Features{% endblock %}
 {% block content %}
 
-    <tr>
-        <td id="serverFileSelectTitle">Select server file:</td><br/>
-        <td><input onchange="loadFileAsText()" type="file" id="fileToLoad"></td><br/><br/>
-    </tr><pre id="output"></pre>
-    </select>
-    <ul id="selections" class="selections">
-        <ul id="selectionChoice1" class="selectionChoices"><button class="btn choice1" onclick="uptimeCheck()">Uptime check</button></ul><br/>
-        <ul id="selectionChoice2" class="selectionChoices"><button class="btn choice2" onclick="dfCheck()">Disk space</button></ul><br/>
-        <ul id="selectionChoice3" class="selectionChoices"><button class="btn choice3" onclick="pingCheck()">Ping test</button></ul><br/>
-        <ul id="selectionChoice4" class="selectionChoices"><button class="btn choice4" onclick="dnsCheck()">DNS query</button></ul><br/>
-        <ul id="selectionChoice5" class="selectionChoices"><button class="btn choice5" onclick="currentUsageCheck()">Current usage</button></ul><br/>
-    </ul>
-    <h3 id="lockpassTitle">Lockpass:</h3>
+    <script type="text/javascript" src="remote.js"></script>
+
+    <form class="pb-3 col-xs-4">
+        <div class="form-group">
+            <label for="fileToLoad">Select server file (.txt)</label>
+            <input onchange="loadFileAsText()" type="file" id="fileToLoad" class="form-control"/>
+        </div>
+    </form>
+
+    <label for="lockpassText">Lockpass</label><br>
     <input type="password" id="lockpassText" name="lockpassText" class="lockpassText" rows="1" cols="16"></textarea>
+
+
+    <hr>
+    <pre id="output" class="bg-dark"></pre>
+    </select>
+
+    <ul id="selections" class="selections">
+        <ul id="selectionChoice1" class="selectionChoices"><button class="btn btn-dark" onclick="uptimeCheck()">Uptime check</button></ul><br/>
+        <ul id="selectionChoice2" class="selectionChoices"><button class="btn btn-dark" onclick="dfCheck()">Disk space</button></ul><br/>
+        <ul id="selectionChoice3" class="selectionChoices"><button class="btn btn-dark" onclick="pingCheck()">Ping test</button></ul><br/>
+        <ul id="selectionChoice4" class="selectionChoices"><button class="btn btn-dark" onclick="dnsCheck()">DNS query</button></ul><br/>
+        <ul id="selectionChoice5" class="selectionChoices"><button class="btn btn-dark" onclick="currentUsageCheck()">Current usage</button></ul><br/>
+    </ul>
 
 {% endblock content %}
