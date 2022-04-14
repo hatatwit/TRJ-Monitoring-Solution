@@ -20,7 +20,7 @@ sysadmins = ['+15089017299', '+19789609162']
 client = Client(account_sid, auth_token)
 #########################################
 
-optionsList = ["Uptime", "Disk Space", "Ping", "DNS Lookup", "Current Usage", "Enable Logging", "Exit"]
+optionsList = ["Uptime", "Disk Space", "Ping", "DNS Lookup", "Current Usage", "Enable Logging", "Enable Passive Monitor", "Exit"]
 logFile = os.path.join(os.getcwd(), "networkInfo.log")
 
 # Configure Firebase
@@ -102,6 +102,10 @@ def monitorOptions(selectedOption, systemLockPass):
         # log file is existed -> upload/rewrite on Firebase
         else:
             storage.child("logfile.txt").put("networkInfo.log")
+    if selectedOption == "Enable Passive Monitor":
+        startPassive = requests.get("http://"+selectedSystem+"/passive?passive="+systemLockPass)
+        print(startPassive.text)
+
 
 
     if selectedOption == "Exit":

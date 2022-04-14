@@ -120,6 +120,15 @@ def getUsage():
     else:
         return "Permission denied.\n"
 
+@app.route('/passive', methods=['POST', 'GET'])
+def startPassive():
+    passiveRequest = request.args.get('passive')
+    if passiveRequest == str(args.lock_pass):
+        passiveHost = subprocess.Popen("python3.8 passive.py", shell=True)
+        return "\nPassive monitoring started."
+    else:
+        return "Permission denied.\n"
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=args.port_number)
 

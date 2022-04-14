@@ -309,3 +309,66 @@ PING google.com(lga25s72-in-x0e.1e100.net (2607:f8b0:4006:80f::200e)) 56 data by
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 15.094/16.822/19.145/1.706 ms
 
+2022-04-14 02:11:25
+----------
+PING
+ ----------
+PING google.com(lga25s72-in-x0e.1e100.net (2607:f8b0:4006:80f::200e)) 56 data bytes
+64 bytes from lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=1 ttl=57 time=17.4 ms
+64 bytes from lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=2 ttl=57 time=16.8 ms
+64 bytes from lga25s72-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=3 ttl=57 time=15.9 ms
+
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 15.934/16.712/17.412/0.605 ms
+
+2022-04-14 02:12:23
+----------
+UPTIME
+ ----------
+Host: bob@fedora
+Has been up for: 9 hours, 47 minutes
+
+2022-04-14 02:14:02
+----------
+UPTIME
+ ----------
+Host: bob@fedora
+Has been up for: 9 hours, 49 minutes
+
+2022-04-14 02:15:21
+----------
+UPTIME
+ ----------
+Host: bob@fedora
+Has been up for: 9 hours, 50 minutes
+
+2022-04-14 02:15:30
+----------
+DNS LOOKUP
+ ----------
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 142.251.40.238
+Name:	google.com
+Address: 2607:f8b0:4006:80f::200e
+
+
+2022-04-14 02:15:44
+----------
+DISK SPACE
+ ----------
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs            24G  1.1G   23G   5% /dev/shm
+tmpfs           9.4G  2.2M  9.4G   1% /run
+/dev/sdc3       930G  504G  426G  55% /
+tmpfs            24G   30M   24G   1% /tmp
+/dev/sdc3       930G  504G  426G  55% /home
+/dev/sdc2      1005M  252M  685M  27% /boot
+/dev/sdc1       575M   14M  561M   3% /boot/efi
+tmpfs           4.7G  1.1M  4.7G   1% /run/user/1000
+

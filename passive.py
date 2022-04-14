@@ -18,7 +18,7 @@ client = Client(account_sid, auth_token)
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-p', '--port-number', default=5000)
+parser.add_argument('-p', '--port-number', default=4999, type=int, help='Port number to run the server on')
 args = parser.parse_args()
 
 
@@ -66,7 +66,7 @@ def dfTask():
     #print(message.sid)
 
 if __name__ == '__main__':
-    scheduler.add_job(id = 'Regular Ping Check', func=pingTask, trigger="interval", seconds=3600)
-    scheduler.add_job(id = 'Regular Disk Space Check', func=dfTask, trigger="interval", seconds=18000)
+    scheduler.add_job(id = 'Regular Ping Check', func=pingTask, trigger="interval", seconds=10)
+    scheduler.add_job(id = 'Regular Disk Space Check', func=dfTask, trigger="interval", seconds=15)
     scheduler.start()
     app.run(host="0.0.0.0", port=args.port_number)
