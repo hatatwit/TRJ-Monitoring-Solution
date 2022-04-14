@@ -1,3 +1,4 @@
+from cmath import pi
 from crypt import methods
 from tabnanny import check
 from flask import Flask, request, jsonify, render_template
@@ -92,8 +93,13 @@ def getPing():
     pingRequest = request.args.get('ping')
     remoteIP = request.remote_addr
     if pingRequest == str(args.lock_pass):
-        pingHost = subprocess.check_output("ping -c 3 "+ remoteIP, shell=True)
-        return pingHost
+        try:
+            pingHost = subprocess.check_output("ping -c 3 google.com", shell=True)
+            #pingHost = subprocess.check_output("ping -c 3 10.0.0.245", shell=True)
+            return pingHost
+        except subprocess.CalledProcessError:
+            return "Internet ping (google.com) failed."
+
     else:
         return "Permission denied.\n"
 
@@ -113,6 +119,15 @@ def getUsage():
         usageHost = subprocess.check_output("top -n 1 | head -n 20  | tail -n 19", shell=True)
 
         return usageHost
+    else:
+        return "Permission denied.\n"
+
+@app.route('/passive', methods=['POST', 'GET'])
+def startPassive():
+    passiveRequest = request.args.get('passive')
+    if passiveRequest == str(args.lock_pass):
+        passiveHost = subprocess.Popen("python3.8 passive.py", shell=True)
+        return "\nPassive monitoring started."
     else:
         return "Permission denied.\n"
 

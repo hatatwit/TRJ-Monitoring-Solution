@@ -1,3 +1,8 @@
+// GLOBALS
+var siteIP = location.protocol + '//' + location.host;
+///////////
+
+
 function getLockpass(){
     let lockpassText = document.getElementById("lockpassText").value;
     if (lockpassText == "") {
@@ -161,6 +166,8 @@ function currentUsageCheck() {
 }
 
 window.onload = function() {
+    siteIP = siteIP.replace("http://", "");
+    console.log(siteIP);
     document.getElementById("selections").style.visibility="hidden";
     document.getElementById("selections").style.display="none";
     // document.getElementById("lockpassTitle").style.visibility="hidden";
