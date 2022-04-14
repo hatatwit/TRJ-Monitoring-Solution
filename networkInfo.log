@@ -296,3 +296,16 @@ PING google.com(lga25s72-in-x0e.1e100.net (2607:f8b0:4006:80f::200e)) 56 data by
 3 packets transmitted, 3 received, 0% packet loss, time 2002ms
 rtt min/avg/max/mdev = 18.012/19.899/22.093/1.680 ms
 
+2022-04-14 01:33:37
+----------
+PING
+ ----------
+PING google.com(lga25s72-in-x0e.1e100.net (2607:f8b0:4006:80f::200e)) 56 data bytes
+64 bytes from lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=1 ttl=57 time=16.2 ms
+64 bytes from lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=2 ttl=57 time=15.1 ms
+64 bytes from lga25s41-in-x0e.1e100.net (2607:f8b0:4006:80f::200e): icmp_seq=3 ttl=57 time=19.1 ms
+
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 15.094/16.822/19.145/1.706 ms
+
